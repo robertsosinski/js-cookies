@@ -71,6 +71,7 @@ window.cookies = {
       }
       return cookies;
     }
+    return [];
   },
   
   // delete is a reserved word, so appending an underscore
