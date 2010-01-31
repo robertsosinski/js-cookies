@@ -27,14 +27,15 @@
  */
 window.cookies = {
   set: function(name, value, days) {
+    var expires;
     if (name) {
       if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        var expires = "; expires=" + date.toGMTString();
+        expires = "; expires=" + date.toGMTString();
       }
       else {
-        var expires = "";
+        expires = "";
       }
       document.cookie = name + "=" + escape(value) + expires + "; path=/";
     }
@@ -66,8 +67,8 @@ window.cookies = {
     var matches = document.cookie.split(new RegExp("=|; "));
     if (matches.length > 1) {
       var cookies = new Array(matches.length / 2);
-      for (var i = j = 0; j < matches.length; j+=2) {
-        cookies[i++] = matches[j]
+      for (var i = 0, j = 0; j < matches.length; j+=2) {
+        cookies[i++] = matches[j];
       }
       return cookies;
     }
@@ -78,4 +79,4 @@ window.cookies = {
   delete_: function(name) {
     this.set(name, "" , -1);
   }
-}
+};
