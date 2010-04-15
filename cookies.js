@@ -48,7 +48,7 @@ window.cookies = {
   
   get: function(name) {
     if (name) {
-      var match = document.cookie.match(new RegExp(name + "=(.*?)(?:;|$)"));      
+      var match = document.cookie.match(new RegExp(name + "=(.*?)(?:;|$)"));
       if (match) {
         return unescape(match[1].replace(/\+/g, "%20"));
       }
@@ -64,13 +64,13 @@ window.cookies = {
   },
   
   list: function() {
-    var matches = document.cookie.split(new RegExp("=|; "));
-    if (matches.length > 1) {
-      var cookies = new Array(matches.length / 2);
-      for (var i = 0, j = 0; j < matches.length; j+=2) {
-        cookies[i++] = matches[j];
+    var pairs = document.cookie.split(new RegExp("; "));
+    if (pairs.length > 0 && pairs[0] !== "") {
+      var keys = new Array(pairs.length);
+      for (var i = 0; i < pairs.length; i++) {
+        keys[i] = pairs[i].match(/(.+?)=/)[1];
       }
-      return cookies;
+      return keys;
     }
     return [];
   },
