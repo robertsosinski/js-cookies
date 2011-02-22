@@ -2,8 +2,8 @@ JS-Cookies Plugin
 =================
 
 JS-Cookies is a simple interface to list, get, set and delete cookies.  If you 
-are also using jQuery and jQuery-JSON, you can set entire object literals as 
-cookies too, as they will be automatically converted to and evaluated as JSON.
+are also using Douglas Crockford's JSON library, you can set entire object literals
+as cookies too, as they will be automatically converted to and evaluated as JSON.
 
 If you are using a different JavaScript framework or JSON library, you can also 
 easily edit `getJSON` and `setJSON` to use the appropriate methods.

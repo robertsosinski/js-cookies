@@ -41,9 +41,9 @@ window.cookies = {
     }
   },
   
-  // requires jQuery and jQuery-JSON
+  // requires JSON library
   setJSON: function(name, value, days) {
-    this.set(name, jQuery.toJSON(value), days);
+    this.set(name, JSON.stringify(value), days);
   },
   
   get: function(name) {
@@ -55,11 +55,11 @@ window.cookies = {
     }
   },
   
-  // requires jQuery and jQuery-JSON
+  // requires JSON library
   getJSON: function(name) {
     var value = this.get(name);
     if (value) {
-      return jQuery.evalJSON(value);
+      return JSON.parse(value);
     }
   },
   
